@@ -1,6 +1,7 @@
 # Build and Object Folders
 bin/
 obj/
+bld/
 
 #User Specific Files
 *.user
