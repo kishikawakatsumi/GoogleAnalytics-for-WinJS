@@ -1,0 +1,2 @@
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\GoogleAnalytics.jsproj;neutral
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\WindowsRuntimeGoogleAnalytics\WindowsRuntimeGoogleAnalytics.csproj;neutral

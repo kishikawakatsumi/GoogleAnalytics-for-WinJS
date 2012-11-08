@@ -1,0 +1,15 @@
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bin\Debug\resources.pri
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bin\Debug\AppxManifest.xml
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bin\Debug\GoogleAnalytics.build.appxrecipe
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bin\Debug\WindowsRuntimeGoogleAnalytics.winmd
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bin\Debug\Nascent.GoogleAnalytics.dll
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bin\Debug\WindowsRuntimeGoogleAnalytics.pdb
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bin\Debug\WindowsRuntimeGoogleAnalytics.pri
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bld\Debug\GoogleAnalytics.jsprojResolveAssemblyReference.cache
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bld\Debug\GoogleAnalytics.jsproj.GenerateResource.Cache
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bld\Debug\priconfig.xml
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bld\Debug\layout.resfiles
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bld\Debug\resources.resfiles
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bld\Debug\pri.resfiles
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bld\Debug\LanguageQualifiers.txt
+C:\Users\克己\Desktop\GoogleAnalytics-for-WinJS\GoogleAnalytics\bld\Debug\ProjectArchitectures.txt
