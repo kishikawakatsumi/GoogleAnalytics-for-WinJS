@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nascent.GoogleAnalytics</name>
+    </assembly>
+    <members>
+        <member name="T:Nascent.GoogleAnalytics.AnalyticsHelper">
+            <summary>
+            Provides a set of static and extension methods supporting the analytics
+            library internals.
+            </summary>
+        </member>
+        <member name="T:Nascent.GoogleAnalytics.AnalyticsService">
+            <summary>
+            The core component responsible for collecting and submitting metrics
+            to the Google Analytics service.
+            </summary>
+        </member>
+        <member name="T:Nascent.GoogleAnalytics.AnalyticsSession">
+            <summary>
+            Represents persisted session-specific information and context that 
+            would typically be represented using cookies in the standard Google
+            Analytics JavaScript library.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Nascent.GoogleAnalytics.AnalyticsTracker" -->
+        <member name="F:Nascent.GoogleAnalytics.AnalyticsTracker.MaxCustomVariableIndex">
+            <summary>
+            Defines the maximum number of custom variables that can be tracked,
+            with the current value being <code>5</code>.
+            </summary>
+        </member>
+        <member name="M:Nascent.GoogleAnalytics.AnalyticsTracker.GetInstance(System.String)">
+            <summary>
+            Creates a new instance of a tracker, bound to the specified web
+            property id.
+            </summary>
+            <param name="webPropertyId">
+            A valid web property identifier, created by a Google Analytics 
+            administrator.
+            </param>
+        </member>
+        <member name="M:Nascent.GoogleAnalytics.AnalyticsTracker.SetCustomVariable(System.Int32,System.String,System.String,Nascent.GoogleAnalytics.VariableScope)">
+            <summary>
+            Sets a scope-bound custom variable for the tracker, which will be
+            posted with the next tracked page view or event.
+            </summary>
+            <param name="index">
+            The 1-based index of the value being set.
+            </param>
+            <param name="name">
+            The name of this custom variable.
+            </param>
+            <param name="value">
+            The value of this custom variable.
+            </param>
+            <param name="scope">
+            The scope of this variable, which defaults to a page-level value.
+            </param>
+            <remarks>
+            This method does not post the variables immediately, but instead
+            requires a page view or event to be tracked so that the variable
+            information can be sent to the analytics service.
+            </remarks>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if the variable index is not within the specified range of
+            1 to 5.
+            </exception>
+        </member>
+        <member name="M:Nascent.GoogleAnalytics.AnalyticsTracker.ClearCustomVariable(System.Int32)">
+            <summary>
+            Clears the variable at the specified index, finalizing the update
+            on the next tracked page view or event.
+            </summary>
+            <param name="index">
+            The 1-based index of the variable being cleared.
+            </param>
+            <remarks>
+            This method does not clear the variables immediately, but instead
+            requires a page view or event to be tracked so that the variable
+            information can be sent to the analytics service.
+            </remarks>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if the variable index is not within the specified range of
+            1 to 5.
+            </exception>
+        </member>
+        <member name="M:Nascent.GoogleAnalytics.AnalyticsTracker.TrackPageView(System.String)">
+            <summary>
+            Tracks a page view for the specified relative page path.
+            </summary>
+            <param name="page">
+            The page path which has been loaded.
+            </param>
+            <remarks>
+                <para>
+                It is standard convention that a page path be a relative path 
+                from a conceptual application root, prefixed with a forward 
+                slash ("/").
+                </para>
+                <para>
+                It is important to note that a page will be tracked regardless
+                of the previous page path, even if the page path has not 
+                changed since the last invocation of this method.  Events 
+                will always be associated to the last page path tracked, or
+                the default path ("/") if no previous page view has been 
+                tracked.
+                </para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the page path is null.
+            </exception>
+        </member>
+        <member name="M:Nascent.GoogleAnalytics.AnalyticsTracker.TrackEvent(System.String,System.String,System.String)">
+            <summary>
+            Tracks an event for the last page view path tracked, or for the 
+            default page path ("/") if called before any page views have been
+            recorded.
+            </summary>
+            <param name="category">
+            The category of the event.
+            </param>
+            <param name="action">
+            The action which the event represents.
+            </param>
+            <param name="label">
+            An optional contextual label for the event.
+            </param>
+        </member>
+        <member name="M:Nascent.GoogleAnalytics.AnalyticsTracker.TrackEvent(System.String,System.String,System.Int32)">
+            <summary>
+            Tracks an event for the last page view path tracked, or for the 
+            default page path ("/") if called before any page views have been
+            recorded.
+            </summary>
+            <param name="category">
+            The category of the event.
+            </param>
+            <param name="action">
+            The action which the event represents.
+            </param>
+            <param name="label">
+            A contextual label for the event.
+            </param>
+            <param name="label">
+            A numeric value associated to the event (will be aggregated by the 
+            analytics service).
+            </param>
+        </member>
+        <member name="M:Nascent.GoogleAnalytics.AnalyticsTracker.TrackEvent(System.String,System.String,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Tracks an event for the last page view path tracked, or for the 
+            default page path ("/") if called before any page views have been
+            recorded.
+            </summary>
+            <param name="category">
+            The category of the event.
+            </param>
+            <param name="action">
+            The action which the event represents.
+            </param>
+            <param name="label">
+            An optional contextual label for the event.
+            </param>
+            <param name="label">
+            An optional numeric value associated to the event (will be 
+            aggregated by the analytics service).
+            </param>
+        </member>
+        <member name="P:Nascent.GoogleAnalytics.AnalyticsTracker.WebPropertyId">
+            <summary>
+            The current web property id associated to this tracker.
+            </summary>
+        </member>
+        <member name="T:Nascent.GoogleAnalytics.Metrics.Metric">
+            <summary>
+            Represents an analytics metric that can be sent to the Google Analytics
+            service.
+            </summary>
+        </member>
+        <member name="T:Nascent.GoogleAnalytics.Metrics.PageEvent">
+            <summary>
+            A recorded page event.
+            </summary>
+        </member>
+        <member name="T:Nascent.GoogleAnalytics.Metrics.PageView">
+            <summary>
+            A recorded page view.
+            </summary>
+        </member>
+        <member name="T:Nascent.GoogleAnalytics.Metrics.Variable">
+            <summary>
+            A custom variable.
+            </summary>
+        </member>
+        <member name="T:Nascent.GoogleAnalytics.VariableScope">
+            <summary>
+            Provides control to the lifetime and scope of values associated to 
+            custom variables with a Google Analytics application.
+            </summary>
+        </member>
+        <member name="F:Nascent.GoogleAnalytics.VariableScope.Visitor">
+            <summary>
+            Use visitor-level custom variables to distinguish categories of 
+            visitors across multiple sessions.
+            </summary>
+        </member>
+        <member name="F:Nascent.GoogleAnalytics.VariableScope.Session">
+            <summary>
+            Use session-level custom variables to distinguish different visitor 
+            experiences across sessions. 
+            </summary>
+        </member>
+        <member name="F:Nascent.GoogleAnalytics.VariableScope.Page">
+            <summary>
+            Use page-level custom variables to define a collection of 
+            page-level activities by your users. 
+            </summary>
+        </member>
+    </members>
+</doc>
